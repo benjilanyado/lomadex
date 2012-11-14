@@ -1,0 +1,15 @@
+<h2>Welcome to Lomadex</h2>
+
+<% @lists.each do |list| %>
+	<h3>
+		<%= list.name %> by <%= list.user.username %>
+	</h3>
+
+	<ul>
+	<% list.contacts.each do |contact| %>
+	<li>
+		<%= contact.name %>
+	</li>
+	<% end %>
+	</ul>
+<% end %>
