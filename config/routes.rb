@@ -1,6 +1,9 @@
 Lomadex::Application.routes.draw do
 
+  get "accounts/edit"
+
   resources :users, only: [:show, :new, :create, :edit, :update]
+  resource :account, only: [:edit, :update]
   resources :lists, except: [:show]
   resources :contacts, only: [:new, :create, :edit, :update, :destroy]
   resource :sessions, only: [:new, :create, :destroy]

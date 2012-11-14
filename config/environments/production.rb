@@ -64,4 +64,13 @@ Lomadex::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "lomadex",
+      :access_key_id => "AKIAINPX5C7CPOQIYAJA",
+      :secret_access_key => "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"
+    }
+  }
 end
