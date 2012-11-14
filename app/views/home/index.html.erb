@@ -2,7 +2,9 @@
 
 <% @lists.each do |list| %>
 	<h3>
-		<%= list.name %> by <%= list.user.username %>
+		<%= list.name %> by
+		<%= image_tag list.user.avatar.url(:thumb) %>
+		<%= list.user.username %>
 	</h3>
 
 	<ul>
