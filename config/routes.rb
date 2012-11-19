@@ -8,6 +8,7 @@ Lomadex::Application.routes.draw do
   resources :contacts, only: [:new, :create, :edit, :update, :destroy]
   resource :sessions, only: [:new, :create, :destroy]
 
+  match "/auth/facebook/callback" => "users#facebook_login"
 
   root to: "home#index"
 

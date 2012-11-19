@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114200937) do
+ActiveRecord::Schema.define(:version => 20121119182543) do
 
   create_table "contacts", :force => true do |t|
     t.integer  "list_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20121114200937) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "facebook_uid"
   end
 
 end
