@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		session[:user_id] = @user.id
-
   		flash[:alert] = "You've signed up!"
   		redirect_to root_path
   	else

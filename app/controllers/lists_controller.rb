@@ -2,6 +2,7 @@ class ListsController < ApplicationController
 
 	before_filter :get_list, only: [:edit, :update, :destroy]
 
+  layout :has_ajax
 
   def index
   	@lists = current_user.lists.all
@@ -44,6 +45,14 @@ class ListsController < ApplicationController
 
   def get_list
   	@list = current_user.lists.find(params[:id])
+  end
+
+  def has_ajax
+    if request.xhr?
+      nil
+    else
+      "application"
+    end
   end
 
 end

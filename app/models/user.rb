@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   before_validation :no_password_omniauth
 
+  after_create :send_out_sign_up_email
+
   validates :email, presence: true, uniqueness: true, format: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }, on: :create, unless: :has_facebook_uid
   validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
@@ -23,5 +25,9 @@ class User < ActiveRecord::Base
 
   def has_facebook_uid
     facebook_uid?
+  end
+
+  def send_out_sign_up_email
+    UserMailer.sign_up_email(self).deliver
   end
 end
